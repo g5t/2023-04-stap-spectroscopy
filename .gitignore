@@ -1,0 +1,13 @@
+.snakemake
+generated/
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.aux
+*.log
+*.out
+*.pdf
+*.xdv
+*.run.xml

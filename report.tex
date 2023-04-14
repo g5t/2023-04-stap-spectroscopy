@@ -1,0 +1,45 @@
+\documentclass[a4paper, twocolumn, 10pt, revision]{ess}
+\usepackage{dmsc}
+\usepackage{paralist}
+%\usepackage{esslogo}
+
+\input{generated/revision}
+
+\newcommand{\pdfsubject}{Subject}
+\newcommand{\pdftitle}{Title}
+\newcommand{\pdfauthor}{Gregory Tucker}
+\newcommand{\pdfaffil}{European Spallation Source DMSC}
+\hypersetup{%
+  pdfinfo={%
+    Title=\pdftitle,%
+    Subject=\pdfsubject,%
+    Author=\pdfauthor,%
+    Revision=\revision,%
+    Keywords={Revision:\revision,Affiliation:\pdfaffil}%
+  }%
+}
+
+% set extra footer information
+% \ifoot{\pdfauthor\\\pdfaffil}
+% \ofoot{\pdftitle\\\revision}
+% \cfoot{}
+
+
+% \pagestyle{scrheadings}
+
+
+\begin{document}
+\titlehead{\pdfsubject \hfill Revision: \revision}
+%\subject{\pdfsubject}
+\title{\pdftitle}
+\author{\pdfauthor}
+\date{\revisiondate}
+\maketitle
+
+\begin{abstract}
+  Abstract
+\end{abstract}
+
+\section{Introduction}
+
+\end{document}

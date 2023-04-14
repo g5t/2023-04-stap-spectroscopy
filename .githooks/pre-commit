@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+commit=$(git log -1 --pretty="%H")
+echo "$commit" > generated/commit.check
