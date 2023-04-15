@@ -2,11 +2,12 @@
 \usepackage{dmsc}
 \usepackage{paralist}
 %\usepackage{esslogo}
-
 \input{generated/revision}
 
-\newcommand{\pdfsubject}{Subject}
-\newcommand{\pdftitle}{Title}
+\addbibresource{STAP-Reports.bib}
+
+\newcommand{\pdfsubject}{Spectroscopy Scientific and Technical Advisory Panel}
+\newcommand{\pdftitle}{Instrument Data Scientist Report}
 \newcommand{\pdfauthor}{Gregory Tucker}
 \newcommand{\pdfaffil}{European Spallation Source DMSC}
 \hypersetup{%
@@ -40,6 +41,45 @@
   Abstract
 \end{abstract}
 
-\section{Introduction}
+\section{Simulations}
 
+\section{User tools}
+It is undoubtable that some tasks can be made easier through graphical user interfaces (GUI) to scripts and other routines.
+Often a user may desire a tool to help carry out a measurement, which must be flexible enough to support their specific use case.
+Traditional GUI deveopment can be time-consuming, is typically platform dependent, and is almost-always highly-inflexible.
+Therefore traditional GUIs would be a bad choice to provide an interface to one-off or quickly-developed tools.
+
+Development in Python
+Use of Pyodide
+
+
+\section{Project planning}
+
+
+
+\section{Pixel mapping}
+Interest was expressed about pixel mapping in the last ESS Spectroscopy STAP Report \autocite{spectroscopy_stap_2022}.
+Extensive per-instrument details are available from the Experiment Control and Data Curation (ECDC)
+\href{https://confluence.esss.lu.se/display/ECDC/Instrument+Status+Overview}{Instrument Status Overview} page within 
+ESS Confluence.
+The CSPEC documentation available there as of this moment does not yet reflect the change to $^3$He detectors,
+but should instead be similar to the \href{https://project.esss.dk/owncloud/index.php/s/4M60TNdqkMcppUX}{BIFROST documentation}.
+
+A high-level summary of the planned readout scheme follows:
+\begin{inparaenum}
+\item high-voltage signals from the ends of a wire, $A$ and $B$, are digitized by one of series of Front End Nodes;
+\item a Readout Master collects the digitized signals, bundles them into network packets along with timing information, and sends the packets over a redundant  connection to a server room located in the Central Utility Building, H01, on the ESS site;
+\item an instance of the \href{https://github.com/ess-dmsc/event-formation-unit}{Event Formation Unit} (EFU) software uses linear charge division to pixelate each wire.
+\end{inparaenum}
+The identification of pixels from the continuous charge-division signal, $x = A/(A+B)$, will require at least two values per tube to identify its ends -- in the case of BIFROST this is six values per wire due to the triple in-series tubes.
+The EFU extracts $x$ between the specified end-points and optionally applies a nonlinear correction with calibrated polynomial coefficients
+before subdividing it into a configurable number of pixels.
+The number of EFU pixels should match the position resolution of the tube, and 100 pixels per tube are expected for BIFROST.
+
+Since the ESS data transformation for spectroscopy will keep neutron event data and avoid unnecessarily producing histograms, 
+combining pixels to, e.g., match instrumental resolution conditions, will only be performed preceding the final histogram-creating step.
+
+
+
+\printbibliography
 \end{document}
