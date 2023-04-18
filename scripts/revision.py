@@ -32,7 +32,10 @@ def version_info():
     git_revision = call_and_return('git describe --always --tags --dirty'.split(), 'unknown version')
     git_date = call_and_return(['git', 'log', '-1', '--format="%ad"', '--date=format:%B %d, %Y'], 'Never').strip('"')
     git_branch = call_and_return('git rev-parse --abbrev-ref HEAD'.split(), 'Not a repository')
-    return git_branch, git_revision, git_date
+    head, info = f'Revision: {git_revision}', f', {git_revision}'
+    if 'final' in git_revision.lower():
+        head, info = '', ''
+    return git_branch, git_revision, git_date, head, info
 
 
 TEX_CONTENTS = """% Automatically generated file:
@@ -42,6 +45,8 @@ TEX_CONTENTS = """% Automatically generated file:
 \\newcommand{{\\revisionbranch}}{{{0:}}}
 \\newcommand{{\\revision}}{{{1:}}}
 \\newcommand{{\\revisiondate}}{{{2:}}}
+\\newcommand{{\\revisionhead}}{{{3:}}}
+\\newcommand{{\\revisiontail}}{{{4:}}}
 """
 
 verify_and_write(snakemake.output[0], TEX_CONTENTS.format(*version_info()))

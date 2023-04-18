@@ -28,10 +28,9 @@
 
 % \pagestyle{scrheadings}
 
-
 \begin{document}
-\titlehead{\pdfsubject \hfill Revision: \revision}
-%\subject{\pdfsubject}
+\renewcommand{\revisionlinethree}{\textrev{\pdftitle\revisiontail}}
+\titlehead{\pdfsubject \hfill \revisionhead}
 \title{\pdftitle}
 \author{\pdfauthor}
 \date{\revisiondate}
