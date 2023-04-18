@@ -145,7 +145,7 @@ To make any GUI tool written in Python available to users we can
 % Distributed installers
 Producing and distributing installers for any application can be resource intensive.
 Such an investment may be worthwhile for large stable programs or performance sensitive applications,
-but is likely wasteful for user tools.
+but is likely wasteful for one-off tools.
 
 % Host on ESS hardware
 Hosting on ESS hardware can reduce a large part of the development effort compared to distributing installers;
@@ -154,7 +154,7 @@ mainly from having machine control and only targeting a single machine (or multi
 %another is to host the tool as part of a website.
 %Both of these options still require relatively high resource investments, which may not be suitable for in-development user tools.
 Still, configuring and running the hosting system requires relatively high resource use,
-which may not be suitable for in-development user tools.
+which may not be suitable for in-development tools.
 
 % Tutorials + automated environment setup
 Distributing the source files which constitute a Python tool confers all of the advantages of open-source software.
@@ -168,13 +168,13 @@ Web browser based interfaces have the significant advantage that they run on top
 already present on a user's computer.
 Through WebAssembly and the \href{https://pyodide.org/}{Pyodide} Python distribution it is possible
 to run Python-based tools on a user's machine with no user-configuration and near-native performace.
-It is even possible to run notebooks in a user's browser via \href{https://jupyterlite.readthedocs.io/}{Jupyterlite}.
+It is even possible to run notebooks in a browser via \href{https://jupyterlite.readthedocs.io/}{Jupyterlite}.
 For simple GUI tools this can allow for both rapid development and ease of use, even for novice users.
 
 Recently, to support design of a new magnet a tool was required to help visualize the effect different opening-angles would have on accessible reciprocal space
 for a direct-geometry spectrometer (DGS) like CSPEC.
 The intended audience for the tool were the engineers, technicians, and scientists involved in setting the magnet design criteria,
-but similar tool could prove useful for \emph{users} of a magnet on a DGS as well.
+but a similar tool could prove useful for \emph{users} of a magnet on a DGS as well.
 The source code of the tool is hosted on
 \href{https://github.com/g5t/tof-tools/}{Github}
 which also provides free webhosting for the
@@ -187,9 +187,6 @@ The tool running after interacting with some of the GUI elements is shown in fig
 \end{centering}
 \caption{The magnet opening-angle visualization tool, running in a Jupyterlite notebook. \label{fig:tof-tool}}
 \end{figure}
-
-
-
 
 
 
